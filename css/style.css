@@ -1,0 +1,222 @@
+/*---------------------------------------
+import
+----------------------------------------*/
+@import url(reset.css);
+
+/*---------------------------------------
+common
+----------------------------------------*/
+body{
+	height: 100%;
+	padding-top: 40px;
+	background-color: #F1F1F1;
+	font-family: Arial, sans-serif;
+	color: #c2c2c2;
+	/*transition: all .3s ease;*/
+}
+
+.container{
+	max-width: 80%;
+	margin: 0 auto;
+}
+
+.screen-reader-text{
+	visibility: hidden;
+}
+
+/*---------------------------------------
+header
+----------------------------------------*/
+
+.form{
+	font-size: 0;
+	margin-bottom: 62px;
+	position: relative;
+}
+
+.form .col{
+	display: inline-block;
+	font-size: 96px;
+	line-height: 100px;
+	font-weight: 700;
+}
+
+
+.form .col input{
+	font-size: inherit;
+	line-height: inherit;
+	font-weight: inherit;
+}
+
+.form .col-1{
+	width: 100%;
+	padding-right: 100px;
+	box-sizing: border-box;
+	color:#F1F1F1;
+}
+
+.form .col-2{
+	top: 0;
+	right: 0;
+	position: absolute;
+	box-sizing: border-box;
+}
+
+
+.form .col-1 input{
+	width: 100%;
+	box-sizing: border-box;
+	border:none;
+	background: #F1F1F1;
+	color: #EC5A62;
+}
+
+/* ----------------- placeholder color for chrome and ie */
+.form .col-1 input::placeholder { 
+  color: #c2c2c2;
+}
+.form .col-1 input:-ms-input-placeholder{
+	color: #c2c2c2;
+}
+/* ----------------- placeholder color ^*/
+
+.form .col-1 input:focus{
+	outline: none;
+}
+
+.form .col-2 input{
+    width: 100px;
+    height: 100px;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    background: url("../img/magnifier.svg") repeat-x center center;
+    /* move right "X" to hide this char*/
+    /* very useful trick*/
+    text-indent: 100px;
+    font-size: 0;
+    vertical-align: top;
+    transition: transform .3s ease, height .3s ease, width .3s ease;
+    
+}
+
+.form .col-2 input:hover{
+    cursor: pointer;
+    transform: scale(1.1,1.1);
+    /*transform: translate3d(0, 0, 40px);*/
+    transition: transform .3s ease;
+    
+}
+
+@media (max-width: 770px){
+	.form .col{
+		transition: all .3s ease;
+		font-size: 43px;
+		line-height: 50px;
+	}
+	.form .col-1{
+		padding-right: 55px;
+	}
+	.form .col-2 input{
+		width: 50px;
+		height: 50px;
+		transition:  height .3s ease, width .3s ease;
+	}
+}
+/*---------------------------------------
+main - list
+----------------------------------------*/
+.list{
+	font-size: 0;
+}
+
+.list .col{
+	width: 30%;
+	display: inline-block;
+	box-sizing: border-box;
+	vertical-align: top;
+	transition: width .3s ease;
+}
+
+.list .col:nth-child(even){
+	margin:0 5%;
+}
+
+@media (max-width: 770px){
+	section.container .list .col{
+		width: 100%;
+		margin:0 0 32px 0 ;
+	}	
+}
+
+.list .col .title{
+	font-size: 16px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: #c2c2c2;
+  margin-bottom: 16px;
+}
+
+.column-list_rows{
+    background: rgba(118,117,128,0.05);
+    margin-bottom: 5px;
+    border-radius: 5px;
+    transition: all .3s ease;
+    color:rgba(145, 145, 145, 0.7);
+    width: 100%;
+
+
+}
+.column-list_rows .img{
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    padding: 12px;
+
+}
+
+
+
+.column-list_rows .img > *{
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 13.6px;
+  font-weight: bold;
+}
+
+.column-list_rows .img > span{
+	/* 60px is the width of the previous img in row
+	original 50px + maring-right 10px
+	*/
+	width: calc(100% - 60px);
+}
+
+
+
+.column-list_rows:hover{
+	 background: #E4E4E5;
+}
+.column-list_rows:hover span{
+	 color:#EC5A62;
+}
+
+
+.column-list_rows .img > img{
+  margin-right: 10px;
+  
+}
+
+.list .col:first-child .img > img{
+	vertical-align: middle;
+  border-radius: 50%;
+}
+
+/* #E4E4E5 */
+
+
+
+
+/*---------------------------------------
+footer
+----------------------------------------
