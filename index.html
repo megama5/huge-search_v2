@@ -169,7 +169,7 @@
 
 	<script>
 
-		var qsRegex;
+		var qsRegex = new RegExp( '', 'gi' );
 			
 		$(document).ready( function() {
 
@@ -179,12 +179,12 @@
 				  layoutMode: 'fitRows',
 				  filter: function() {
 				  	
-				  	if(qsRegex){
+				  	if(qsRegex && qsRegex.source != '(?:)' ){
 				  		let result = $(this).text().match( qsRegex );	
 				  		if(result){ // has match
 				  			// somthing in my mind for future ideas here
 				  			let index = $(this).attr('data-index');
-
+				  			console.log('match');
 				  			if( index === undefined ||  index < 3){
 				  				$(this).attr('data-index', index === undefined ? 1 : ++index);	
 				  			}
@@ -211,12 +211,21 @@
   			}
   		)
 
+  		$grid.on( 'arrangeComplete', function( event, filteredItems ) {
+  			// console.log( filteredItems.length );
+			});
+
+			$col.on( 'arrangeComplete', function( event, filteredItems ) {
+  			// console.log( filteredItems.length );
+			});
+
 
 			// use value of search field to filter
 			var $quicksearch = $('#search').keyup( debounce( function() {
 			  qsRegex = new RegExp( $quicksearch.val(), 'gi' );
-			  $grid.isotope();
 			  $col.isotope();
+			  $grid.isotope();
+			  
 			}, 200 ) );
 
 			// debounce so filtering doesn't happen every millisecond
@@ -230,7 +239,7 @@
 			      fn();
 			      timeout = null;
 			    }
-			    timeout = setTimeout( delayed, threshold || 100 );
+			    timeout = setTimeout( delayed, threshold || 300 );
 			  }
 			}
 
