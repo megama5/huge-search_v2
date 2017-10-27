@@ -165,9 +165,16 @@ main - list
     transition: all .3s ease;
     color:rgba(145, 145, 145, 0.7);
     width: 100%;
-
-
 }
+
+.column-list_rows[data-index="3"]{
+	box-shadow: 0 0 20px lightgreen;
+  border-radius: 5px;	
+}
+
+
+
+
 .column-list_rows .img{
     display: block;
     text-decoration: none;

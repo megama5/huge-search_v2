@@ -181,8 +181,15 @@
 				  	
 				  	if(qsRegex){
 				  		let result = $(this).text().match( qsRegex );	
-				  		if(!result){
-				  			// somthing in my mind for future ideas
+				  		if(result){ // has match
+				  			// somthing in my mind for future ideas here
+				  			let index = $(this).attr('data-index');
+
+				  			if( index === undefined ||  index < 3){
+				  				$(this).attr('data-index', index === undefined ? 1 : ++index);	
+				  			}
+				  		}else{ // no match
+
 				  		}
 				  		return result;
 				  	}else{
